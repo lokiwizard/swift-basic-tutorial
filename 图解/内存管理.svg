@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700">
+  <defs>
+    <style>
+      .title { font: bold 20px sans-serif; }
+      .label { font: 14px sans-serif; }
+      .small { font: 12px sans-serif; }
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .highlight { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+      .danger { fill: #ffcdd2; stroke: #d32f2f; stroke-width: 2; }
+      .success { fill: #c8e6c9; stroke: #388e3c; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="500" y="30" text-anchor="middle" class="title">Swift 内存管理 (ARC)</text>
+
+  <!-- ARC 工作原理 -->
+  <text x="200" y="70" text-anchor="middle" class="label">ARC 引用计数</text>
+
+  <rect x="50" y="90" width="150" height="60" class="box"/>
+  <text x="125" y="115" text-anchor="middle" class="label">创建对象</text>
+  <text x="125" y="135" text-anchor="middle" class="label">引用计数 = 1</text>
+
+  <line x1="200" y1="120" x2="250" y2="120" stroke="#666" marker-end="url(#arrowhead)"/>
+
+  <rect x="260" y="90" width="150" height="60" class="highlight"/>
+  <text x="335" y="115" text-anchor="middle" class="label">增加引用</text>
+  <text x="335" y="135" text-anchor="middle" class="label">引用计数 + 1</text>
+
+  <line x1="410" y1="120" x2="460" y2="120" stroke="#666" marker-end="url(#arrowhead)"/>
+
+  <rect x="470" y="90" width="150" height="60" class="danger"/>
+  <text x="545" y="115" text-anchor="middle" class="label">释放引用</text>
+  <text x="545" y="135" text-anchor="middle" class="label">引用计数 - 1</text>
+
+  <line x1="620" y1="120" x2="670" y2="120" stroke="#666" marker-end="url(#arrowhead)"/>
+
+  <rect x="680" y="90" width="150" height="60" class="success"/>
+  <text x="755" y="115" text-anchor="middle" class="label">计数 = 0</text>
+  <text x="755" y="135" text-anchor="middle" class="label">释放内存</text>
+
+  <!-- 循环引用问题 -->
+  <text x="300" y="220" text-anchor="middle" class="label">循环引用问题</text>
+
+  <rect x="100" y="240" width="120" height="60" class="danger"/>
+  <text x="160" y="265" text-anchor="middle" class="label">Person</text>
+  <text x="160" y="285" text-anchor="middle" class="small">强引用</text>
+
+  <line x1="220" y1="270" x2="280" y2="270" stroke="#d32f2f" marker-end="url(#arrowhead)"/>
+  <line x1="340" y1="290" x2="220" y2="290" stroke="#d32f2f" marker-end="url(#arrowhead)"/>
+
+  <rect x="280" y="240" width="120" height="60" class="danger"/>
+  <text x="340" y="265" text-anchor="middle" class="label">Apartment</text>
+  <text x="340" y="285" text-anchor="middle" class="small">强引用</text>
+
+  <text x="300" y="330" text-anchor="middle" class="label" fill="#d32f2f">❌ 内存泄漏！</text>
+
+  <!-- 弱引用解决方案 -->
+  <text x="700" y="220" text-anchor="middle" class="label">使用 weak 解决</text>
+
+  <rect x="550" y="240" width="120" height="60" class="success"/>
+  <text x="610" y="265" text-anchor="middle" class="label">Person</text>
+  <text x="610" y="285" text-anchor="middle" class="small">强引用</text>
+
+  <line x1="670" y1="270" x2="730" y2="270" stroke="#388e3c" marker-end="url(#arrowhead)"/>
+  <line x1="790" y1="290" x2="670" y2="290" stroke="#388e3c" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+
+  <rect x="730" y="240" width="120" height="60" class="success"/>
+  <text x="790" y="265" text-anchor="middle" class="label">Apartment</text>
+  <text x="790" y="285" text-anchor="middle" class="small">weak 弱引用</text>
+
+  <text x="700" y="330" text-anchor="middle" class="label" fill="#388e3c">✅ 正常释放</text>
+
+  <!-- 代码示例 -->
+  <rect x="50" y="370" width="900" height="300" rx="10" fill="#f5f5f5" stroke="#ddd"/>
+  <text x="500" y="400" text-anchor="middle" class="label">代码示例</text>
+
+  <text x="80" y="430" class="small" fill="#333">// ❌ 循环引用 - 内存泄漏</text>
+  <text x="80" y="450" class="small" fill="#333">class Person {</text>
+  <text x="100" y="470" class="small" fill="#333">var apartment: Apartment?</text>
+  <text x="80" y="490" class="small" fill="#333">}</text>
+  <text x="80" y="510" class="small" fill="#333">class Apartment {</text>
+  <text x="100" y="530" class="small" fill="#d32f2f">weak var tenant: Person?  // ✅ 使用 weak</text>
+  <text x="80" y="550" class="small" fill="#333">}</text>
+
+  <text x="500" y="430" class="small" fill="#333">// ARC 管理</text>
+  <text x="500" y="450" class="small" fill="#333">var person: Person? = Person()</text>
+  <text x="500" y="470" class="small" fill="#333">// 引用计数 = 1</text>
+  <text x="500" y="490" class="small" fill="#333">person = nil</text>
+  <text x="500" y="510" class="small" fill="#333">// 引用计数 = 0，释放内存</text>
+
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

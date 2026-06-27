@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .title { font: bold 20px sans-serif; }
+      .label { font: 14px sans-serif; }
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .highlight { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="400" y="30" text-anchor="middle" class="title">Swift 数据类型</text>
+
+  <!-- 基本类型 -->
+  <rect x="50" y="60" width="150" height="80" class="box"/>
+  <text x="125" y="90" text-anchor="middle" class="label">Int</text>
+  <text x="125" y="110" text-anchor="middle" class="label">整数类型</text>
+  <text x="125" y="130" text-anchor="middle" class="label">42, -10</text>
+
+  <rect x="220" y="60" width="150" height="80" class="box"/>
+  <text x="295" y="90" text-anchor="middle" class="label">Double</text>
+  <text x="295" y="110" text-anchor="middle" class="label">浮点数类型</text>
+  <text x="295" y="130" text-anchor="middle" class="label">3.14, -0.5</text>
+
+  <rect x="390" y="60" width="150" height="80" class="box"/>
+  <text x="465" y="90" text-anchor="middle" class="label">String</text>
+  <text x="465" y="110" text-anchor="middle" class="label">字符串类型</text>
+  <text x="465" y="130" text-anchor="middle" class="label">"Hello"</text>
+
+  <rect x="560" y="60" width="150" height="80" class="highlight"/>
+  <text x="635" y="90" text-anchor="middle" class="label">Bool</text>
+  <text x="635" y="110" text-anchor="middle" class="label">布尔类型</text>
+  <text x="635" y="130" text-anchor="middle" class="label">true, false</text>
+
+  <!-- 集合类型 -->
+  <rect x="50" y="200" width="220" height="80" class="box"/>
+  <text x="160" y="230" text-anchor="middle" class="label">Array</text>
+  <text x="160" y="250" text-anchor="middle" class="label">有序集合，可重复</text>
+  <text x="160" y="270" text-anchor="middle" class="label">[1, 2, 2, 3]</text>
+
+  <rect x="290" y="200" width="220" height="80" class="box"/>
+  <text x="400" y="230" text-anchor="middle" class="label">Dictionary</text>
+  <text x="400" y="250" text-anchor="middle" class="label">键值对集合</text>
+  <text x="400" y="270" text-anchor="middle" class="label">["key": value]</text>
+
+  <rect x="530" y="200" width="220" height="80" class="highlight"/>
+  <text x="640" y="230" text-anchor="middle" class="label">Set</text>
+  <text x="640" y="250" text-anchor="middle" class="label">无序集合，不可重复</text>
+  <text x="640" y="270" text-anchor="middle" class="label">{1, 2, 3}</text>
+
+  <!-- 自定义类型 -->
+  <rect x="50" y="340" width="150" height="80" class="box"/>
+  <text x="125" y="370" text-anchor="middle" class="label">Struct</text>
+  <text x="125" y="390" text-anchor="middle" class="label">结构体</text>
+  <text x="125" y="410" text-anchor="middle" class="label">值类型</text>
+
+  <rect x="220" y="340" width="150" height="80" class="box"/>
+  <text x="295" y="370" text-anchor="middle" class="label">Class</text>
+  <text x="295" y="390" text-anchor="middle" class="label">类</text>
+  <text x="295" y="410" text-anchor="middle" class="label">引用类型</text>
+
+  <rect x="390" y="340" width="150" height="80" class="highlight"/>
+  <text x="465" y="370" text-anchor="middle" class="label">Enum</text>
+  <text x="465" y="390" text-anchor="middle" class="label">枚举</text>
+  <text x="465" y="410" text-anchor="middle" class="label">相关值集合</text>
+
+  <!-- 连接线 -->
+  <line x1="125" y1="140" x2="125" y2="200" stroke="#666" stroke-dasharray="5,5"/>
+  <line x1="295" y1="140" x2="400" y2="200" stroke="#666" stroke-dasharray="5,5"/>
+  <line x1="465" y1="140" x2="640" y2="200" stroke="#666" stroke-dasharray="5,5"/>
+</svg>

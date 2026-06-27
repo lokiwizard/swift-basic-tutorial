@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600">
+  <defs>
+    <style>
+      .title { font: bold 20px sans-serif; }
+      .label { font: 14px sans-serif; }
+      .small { font: 12px sans-serif; }
+      .box { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+      .highlight { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; }
+      .danger { fill: #ffcdd2; stroke: #d32f2f; stroke-width: 2; }
+      .success { fill: #c8e6c9; stroke: #388e3c; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="500" y="30" text-anchor="middle" class="title">Swift 可选类型解包方式</text>
+
+  <!-- 可选类型概念 -->
+  <text x="200" y="70" text-anchor="middle" class="label">可选类型 Optional</text>
+
+  <rect x="50" y="90" width="300" height="80" class="box"/>
+  <text x="200" y="120" text-anchor="middle" class="label">var name: String?</text>
+  <text x="200" y="140" text-anchor="middle" class="small">可能有值 "小明"</text>
+  <text x="200" y="155" text-anchor="middle" class="small">或者 nil</text>
+
+  <!-- 解包方式对比 -->
+  <text x="500" y="70" text-anchor="middle" class="label">解包方式对比</text>
+
+  <!-- 强制解包 -->
+  <rect x="400" y="90" width="180" height="60" class="danger"/>
+  <text x="490" y="115" text-anchor="middle" class="label">强制解包 !</text>
+  <text x="490" y="135" text-anchor="middle" class="small" fill="#d32f2f">⚠️ 危险：nil 会崩溃</text>
+
+  <!-- if let -->
+  <rect x="600" y="90" width="180" height="60" class="success"/>
+  <text x="690" y="115" text-anchor="middle" class="label">if let</text>
+  <text x="690" y="135" text-anchor="middle" class="small" fill="#388e3c">✅ 安全解包</text>
+
+  <!-- guard let -->
+  <rect x="800" y="90" width="180" height="60" class="success"/>
+  <text x="890" y="115" text-anchor="middle" class="label">guard let</text>
+  <text x="890" y="135" text-anchor="middle" class="small" fill="#388e3c">✅ 提前退出</text>
+
+  <!-- if let 流程图 -->
+  <text x="250" y="210" text-anchor="middle" class="label">if let 解包流程</text>
+
+  <rect x="100" y="230" width="120" height="40" class="box"/>
+  <text x="160" y="255" text-anchor="middle" class="label">if let x = opt</text>
+
+  <polygon points="260,250 320,280 260,310 200,280" class="highlight"/>
+  <text x="260" y="285" text-anchor="middle" class="small">有值?</text>
+
+  <rect x="350" y="240" width="120" height="40" class="success"/>
+  <text x="410" y="265" text-anchor="middle" class="label">执行 if 代码块</text>
+
+  <rect x="100" y="320" width="120" height="40" class="danger"/>
+  <text x="160" y="345" text-anchor="middle" class="label">执行 else 代码块</text>
+
+  <line x1="220" y1="230" x2="350" y2="260" stroke="#666"/>
+  <text x="280" y="240" class="small">有值</text>
+
+  <line x1="200" y1="280" x2="160" y2="320" stroke="#666"/>
+  <text x="180" y="300" class="small">nil</text>
+
+  <!-- guard let 流程图 -->
+  <text x="650" y="210" text-anchor="middle" class="label">guard let 解包流程</text>
+
+  <rect x="500" y="230" width="150" height="40" class="box"/>
+  <text x="575" y="255" text-anchor="middle" class="label">guard let x = opt</text>
+
+  <polygon points="675,250 735,280 675,310 615,280" class="highlight"/>
+  <text x="675" y="285" text-anchor="middle" class="small">有值?</text>
+
+  <rect x="750" y="240" width="120" height="40" class="danger"/>
+  <text x="810" y="265" text-anchor="middle" class="label">return 提前退出</text>
+
+  <rect x="500" y="320" width="150" height="40" class="success"/>
+  <text x="575" y="345" text-anchor="middle" class="label">后续代码可用</text>
+
+  <line x1="720" y1="230" x2="750" y2="260" stroke="#666"/>
+  <text x="730" y="240" class="small">nil</text>
+
+  <line x1="615" y1="280" x2="575" y2="320" stroke="#666"/>
+  <text x="590" y="300" class="small">有值</text>
+
+  <!-- ?? 空合运算符 -->
+  <text x="300" y="420" text-anchor="middle" class="label">?? 空合运算符</text>
+
+  <rect x="100" y="440" width="400" height="60" class="highlight"/>
+  <text x="300" y="465" text-anchor="middle" class="label">let name = optionalName ?? "默认值"</text>
+  <text x="300" y="485" text-anchor="middle" class="small">如果有值则使用值，否则使用默认值</text>
+
+  <!-- 可选链 -->
+  <text x="700" y="420" text-anchor="middle" class="label">?. 可选链</text>
+
+  <rect x="550" y="440" width="300" height="60" class="box"/>
+  <text x="700" y="465" text-anchor="middle" class="label">let city = person?.address?.city</text>
+  <text x="700" y="485" text-anchor="middle" class="small">安全访问嵌套属性</text>
+
+  <!-- 最佳实践 -->
+  <rect x="50" y="520" width="900" height="60" rx="10" fill="#e8f5e9" stroke="#388e3c"/>
+  <text x="500" y="550" text-anchor="middle" class="label" fill="#388e3c">💡 最佳实践：优先使用 if let、guard let 或 ??，避免强制解包 !</text>
+</svg>
